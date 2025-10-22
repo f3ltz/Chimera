@@ -1,0 +1,454 @@
+/* src/App.css (Fully Refined & Organized) */
+
+/* ==========================================================================
+   1. GLOBAL STYLES & LAYOUT
+   ========================================================================== */
+
+   :root {
+    --primary-color: #ef5350; /* Thematic Red */
+    --secondary-color: #646cff; /* Accent Blue/Purple */
+    --background-darkest: #1a1a1a;
+    --background-dark: #242424;
+    --background-light: #2c3e50;
+    --text-primary: #f0f0f0;
+    --text-secondary: #bdc3c7;
+    --text-muted: #888;
+    --border-color: #444;
+    --success-color: #2ecc71;
+    --warning-color: #ef5350;
+  }
+  * {
+    /* This disables the blue/grey flash on tap for mobile browsers */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  *:focus {
+    /* This removes the default browser outline on all focused elements */
+    outline: none;
+  }
+  
+  *:focus-visible {
+    /* This adds a theme-consistent outline ONLY for keyboard navigation, which is great for accessibility */
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+    border-radius: 4px; /* Optional: Makes the outline rounded */
+  }
+  /* --- END OF FIX --- */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background-dark);
+    margin: 0;
+    background-color: #1a1a1a; /* The solid, dark base color */
+
+  /* These two gradients create the grid lines */
+  background-image:
+    /* Vertical lines */
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    /* Horizontal lines */
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+  background-size: 40px 40px; /* The size of the grid squares */
+    background-attachment: fixed;
+    overscroll-behavior-y: contain;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+  }
+  
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .main-game-screen {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns content to the top */
+  }
+  
+  /* ==========================================================================
+     2. HEADER & NAVIGATION
+     ========================================================================== */
+  
+     .app-header {
+      flex-shrink: 0; /* Prevents header from shrinking */
+      display: flex;
+      justify-content: space-between; /* Pushes title and user info to opposite ends */
+      align-items: center;            /* Vertically centers everything inside the header */
+      height: 60px;                   /* A fixed, professional height for the header */
+      padding: 0 20px;                /* Horizontal space on the sides */
+      background-color: var(--background-darkest);
+      border-bottom: 1px solid var(--border-color);
+      box-sizing: border-box;         /* Ensures padding is included in the height */
+    }
+    
+    /* --- THIS IS THE KEY FIX --- */
+    /* It removes the default top/bottom spacing from the h1 tag */
+    .app-header h1 {
+      margin: 0;
+      font-size: 1.5rem; /* A balanced font size for the title */
+      color: var(--primary-color);
+      font-weight: 600; /* A nice semi-bold weight */
+    }
+    
+    /* --- User info styles (mostly unchanged but confirmed correct) --- */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .user-info span { 
+      font-weight: bold; 
+    }
+    
+    .user-info button {
+      background: none;
+      border: 1px solid #555;
+      color: var(--text-secondary);
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 0; /* Explicitly remove default margins */
+    }
+    .user-info button:hover { 
+      background-color: #333; 
+      color: white; 
+    }
+  
+  .game-nav {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--background-darkest);
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .game-nav button {
+    flex: 1 1 0;
+    text-align: center;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 15px 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s, border-bottom-color 0.2s;
+    border-bottom: 3px solid transparent;
+    margin: 0;
+    white-space: nowrap; 
+  }
+  
+  .game-nav button.active {
+    color: white;
+    border-bottom-color: var(--secondary-color);
+  }
+  
+  /* ==========================================================================
+     3. LOGIN & AUTHENTICATION
+     ========================================================================== */
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .login-form-card {
+    background-color: var(--background-darkest);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .login-form-card h2 { margin: 0 0 24px; color: white; }
+  .login-form-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  .login-form-card input:focus { outline: none; border-color: var(--secondary-color); }
+  
+  .button-primary { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: var(--primary-color); color: white; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s; }
+  .button-primary:hover { background-color: #e53935; }
+  
+  .button-secondary { width: 100%; padding: 12px; margin-top: 16px; background: none; border: 1px solid var(--primary-color); color: var(--primary-color); border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background-color 0.2s, color 0.2s; }
+  .button-secondary:hover { background-color: var(--primary-color); color: white; }
+  .error-message { color: #ff8a80; margin-top: 16px; }
+  
+  /* ==========================================================================
+     4. GAME COMPONENTS (Briefing, Hunting, Clues, Timer)
+     ========================================================================== */
+  
+  .briefing, .finished-game-view { text-align: center; background-color: var(--background-dark); padding: 30px 40px; border-radius: 8px; max-width: 500px; width: 100%; }
+  .hunting-view { display: flex; flex-direction: column; align-items: center; gap: 25px; width: 100%; max-width: 650px; }
+  
+  button { background-color: var(--primary-color); color: white; border: none; padding: 12px 24px; font-size: 1em; border-radius: 5px; cursor: pointer; margin-top: 20px; transition: background-color 0.2s; }
+  button:hover { background-color: #c0392b; }
+  
+  .clue-container { background-color: var(--background-dark); padding: 25px; border-radius: 8px; width: 100%; box-sizing: border-box; }
+  .lead-text { font-style: italic; color: var(--text-secondary); }
+  .task-locked { text-align: center; color: var(--warning-color); font-weight: bold; }
+  .task-area input { width: 100%; box-sizing: border-box; padding: 12px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #555; background-color: #333; color: white; font-size: 1em; }
+  
+  .live-timer { width: 100%; text-align: center; background-color: var(--background-dark); padding: 25px; border-radius: 8px; box-sizing: border-box; }
+  .timer-label { color: var(--text-muted); font-size: 1rem; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .timer-digits { font-family: 'Courier New', Courier, monospace; font-size: 2.5rem; font-weight: bold; color: var(--primary-color); letter-spacing: 3px; }
+  
+  /* ==========================================================================
+     5. EVIDENCE LOG & SUSPECT TILES (Animation Fix)
+     ========================================================================== */
+  
+  .evidence-log-page { width: 100%; max-width: 900px; }
+  .no-evidence-text { text-align: center; color: var(--text-muted); font-style: italic; padding: 40px; border: 2px dashed var(--border-color); border-radius: 8px; margin-top: 30px; }
+  
+  .suspect-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+  @media (min-width: 768px) { .suspect-grid { grid-template-columns: repeat(2, 1fr); } }
+  
+  .suspect-tile { background-color: var(--background-light); border-radius: 8px; border-left: 5px solid #4a6572; padding: 15px 20px; cursor: pointer; transition: background-color 0.3s ease, border-left-color 0.3s ease; }
+  .suspect-tile:hover { border-left-color: var(--primary-color); }
+  .suspect-tile.expanded { background-color: #34495e; border-left-color: var(--primary-color); }
+  
+  .suspect-header { display: flex; justify-content: space-between; align-items: center; }
+  .suspect-header h3 { margin: 0; }
+  
+  .expand-icon { font-size: 2rem; font-weight: 300; color: var(--text-muted); transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+  .suspect-tile.expanded .expand-icon { transform: rotate(45deg); }
+  
+  .expanded-content-wrapper { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+  .suspect-tile.expanded .expanded-content-wrapper { grid-template-rows: 1fr; }
+  
+  .expanded-content { overflow: hidden; opacity: 0; transition: opacity 0.3s ease 0.2s; }
+  .suspect-tile.expanded .expanded-content { opacity: 1; }
+  
+  .internal-nav { margin: 15px 0; border-top: 1px solid #4a6572; padding-top: 15px; display: flex; gap: 10px; }
+  .internal-nav button { flex-grow: 1; background-color: #2c3e50; color: var(--text-secondary); border: 1px solid #4a6572; margin: 0; padding: 10px; font-size: 0.9rem; }
+  .internal-nav button.active { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+  
+  /* --- FIX FOR TAB SWITCHING FLASH --- */
+  .tab-content {
+    /* This turns the container into a grid where items can be layered */
+    display: grid;
+  }
+  
+  .clue-list, .suspect-profile {
+    /* This places BOTH tabs in the exact same grid cell, layered on top of each other */
+    grid-area: 1 / 1; 
+  
+    /* This handles the smooth cross-fade animation */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* This rule hides the inactive tab smoothly */
+  .tab-content[data-active-tab="evidence"] .suspect-profile,
+  .tab-content[data-active-tab="profile"] .clue-list {
+    opacity: 0;
+    visibility: hidden; /* Important for accessibility and preventing interaction */
+  }
+  /* --- End of Flash Fix --- */
+  
+  .clue-list-item { background-color: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 4px; margin-bottom: 10px; }
+  .clue-list-item p { margin: 0 0 5px; line-height: 1.5; }
+  .suspect-profile p { line-height: 1.6; font-style: italic; color: var(--text-primary); }
+  
+  /* ==========================================================================
+     6. OTHER COMPONENTS (Leaderboard, Map)
+     ========================================================================== */
+  
+  .leaderboard { width: 100%; max-width: 800px; background-color: var(--background-dark); padding: 20px 30px; border-radius: 8px; }
+  .leaderboard h2 { text-align: center; margin: 0 0 25px; }
+  .leaderboard ol { list-style: none; padding: 0; margin: 0; }
+  .leaderboard li { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #3a3a3a; }
+  /* In src/App.css */
+
+/* --- REPLACE your old .leaderboard li and .player-name rules with this block --- */
+
+.leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px; /* Slightly adjusted padding */
+  border-bottom: 1px solid #444;
+  gap: 15px; /* This creates a consistent gap between all flex items */
+}
+
+.player-name {
+  flex: 1; /* Allows the name to take up a flexible amount of space (about 1/3) */
+  font-weight: bold;
+  white-space: nowrap; /* Prevents long names from wrapping */
+  overflow: hidden; /* Hides any overflow */
+  text-overflow: ellipsis; /* Adds "..." to very long names */
+}
+
+.player-status {
+  flex: 2; /* Allows the status/bar to take up more space (about 2/3) */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- ADD THIS NEW RULE for the current user's text color --- */
+.player-name.current-user {
+  color: #ef5350; /* Your red theme color */
+  font-weight: 900; /* Make it extra bold */
+}
+
+/* --- End of replacement block --- */
+  .player-details { flex-basis: 40%; flex-shrink: 0; display: flex; align-items: center; padding-right: 20px; box-sizing: border-box; }
+  .player-rank { font-size: 1.1em; font-weight: bold; color: var(--text-muted); margin-right: 15px; }
+  .progress-bar-container { width: 100%; height: 20px; background-color: #333; border-radius: 10px; overflow: hidden; margin-right: 15px; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #ef5350, #ffa726); border-radius: 10px; transition: width 0.5s ease-in-out; }
+  .progress-text { font-size: 1em; font-weight: bold; color: #aaa; white-space: nowrap; }
+  .finish-time { font-weight: bold; font-size: 1.1em; color: var(--success-color); width: 100%; text-align: right; }
+  .leaderboard-empty-message { text-align: center; font-style: italic; color: var(--text-muted); padding: 40px 20px; border-top: 1px solid #3a3a3a; }
+  
+  .map-view-page { display: flex; flex-direction: column; height: 100%; width: 100%; max-width: 1200px; }
+  .map-view-page h2, .map-view-page p { flex-shrink: 0; }
+  .map-transform-wrapper { flex-grow: 1; width: 100%; overflow: hidden; border: 2px solid var(--border-color); border-radius: 8px; cursor: grab; }
+  .map-transform-wrapper:active { cursor: grabbing; }
+  .map-transform-content { width: 100%; height: 100%; }
+  .map-container { position: relative; width: 100%; height: 100%; }
+  .map-image { width: 100%; height: 100%; object-fit: contain; }
+  .map-marker { position: absolute; width: 24px; height: 24px; transform: translate(-50%, -50%); cursor: default; }
+  .map-marker-glow { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; background-color: #ff4d4d; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff4d4d, 0 0 15px #ff4d4d; }
+  .map-marker-ring { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 2px solid rgba(255, 77, 77, 0.7); border-radius: 50%; animation: marker-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  @keyframes marker-ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+
+  /* In src/App.css, with your other suspect tile styles */
+
+.clue-list-item.decrypting {
+  color: var(--text-muted);
+  font-style: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.decrypting-label {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: var(--warning-color);
+  color: var(--background-darkest);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.clue-list-item.revealed {
+  /* Optional: Add a subtle flash animation when it reveals */
+  animation: flash-reveal 0.7s ease-out;
+}
+
+@keyframes flash-reveal {
+  0% { background-color: rgba(255, 255, 255, 0.2); }
+  100% { background-color: rgba(0, 0, 0, 0.2); }
+}
+
+/* In src/App.css */
+/* --- NEW: Toast Notification Styles --- */
+
+.toast-container {
+  position: fixed; /* Stays on screen even when scrolling */
+  bottom: 80px; /* Position it just above the bottom nav bar */
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  background-color: var(--success-color);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 1000; /* Ensure it's on top of everything */
+  animation: slideInUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.toast-message {
+  font-weight: 500;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 5px;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.toast-close:hover {
+  opacity: 1;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate(-50%, 50px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.hint-container {
+  width: 100%; /* Make it take the full width of the hunting-view */
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(46, 204, 113, 0.1); /* Faint green background */
+  border: 1px solid #2ecc71; /* Green border */
+  text-align: center;
+}
+
+.hint-text {
+  margin: 0;
+  font-style: italic;
+  color: #2ecc71; /* Green text */
+}
+
+.hint-text strong {
+  font-style: normal;
+  color: #f0f0f0; /* White text for the "Hint:" label */
+}
