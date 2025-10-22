@@ -17,7 +17,7 @@ const Signalscope = ({ distance }) => {
   } else if (distance > 100) {
     signalStrength = `Signal Strengthening... (${Math.round(distance)}m)`;
     signalColor = "#2ecc71"; // Green
-  } else if (distance > 15) {
+  } else if (distance > 50) {
     signalStrength = `STRONG SIGNAL. GETTING CLOSE! (${Math.round(distance)}m)`;
     signalColor = "#f1c40f"; // Yellow
   } else {

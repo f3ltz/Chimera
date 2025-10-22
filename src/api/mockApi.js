@@ -5,7 +5,7 @@ const CHECKPOINTS = [
     id: 'CP01',
     name: "The Pragmatist",
     solution: "8675",
-    location: { lat: 13.009561060347373,  lng:   74.7953531520573, },
+    location: { lat: 13.007061274399877,  lng:   74.79466004257415  , },
     mapCoords: { x: '51%', y: '47%' },
     clue : "Where metal bends but minds grow strong, Gears and tools hum all day long.", 
     suspect: {
@@ -20,7 +20,7 @@ const CHECKPOINTS = [
     id: 'CP02',
     name: "The Protege",
     solution: "23f68",
-    location: { lat: 13.009331696808724,   lng: 74.79574147840232 },
+    location: { lat: 13.007061274399877,   lng: 74.79466004257415 },
     mapCoords: { x: '55%', y: '40%' },
     clue : "See ahead, search far. See behind, in a world apart. See in between, where the currents spark. Seek near and far in the tides of time, The high seas, the low seas and the seas.", 
     suspect: {
@@ -35,7 +35,7 @@ const CHECKPOINTS = [
     id: 'CP03',
     name: "The Journalist",
     solution: "5815",
-    location: { lat: 13.01262460151561,   lng: 74.79645222081095, },
+    location: { lat: 13.007061274399877,   lng: 74.79466004257415, },
     mapCoords: { x: '6%', y: '29%' },
     clue : "The cost of coffee, the cost of tea, Ask what you need, they'll answer with glee.", 
     suspect: {
@@ -50,7 +50,7 @@ const CHECKPOINTS = [
     id: 'CP04',
     name: "The Estranged",
     solution: "5469",
-    location: { lat: 13.009532506672716,  lng:  74.79410685244191, },
+    location: { lat: 13.007061274399877,  lng:  74.79466004257415, },
     mapCoords: { x: '53%', y: '74%' },
     clue : "Find my fourth to learn what you seek, Where doors hide knowledge for those who peek.", 
     suspect: {
@@ -65,7 +65,7 @@ const CHECKPOINTS = [
     id: 'CP05',
     name: "The Investor",
     solution: "1888",
-    location: { lat: 13.009129180664573,   lng: 74.79661463302433, },
+    location: { lat: 13.007061274399877,   lng: 74.79466004257415, },
     mapCoords: { x: '57%', y: '27%' },
     clue : "Turn around, touch the ground. The wheels of the magic round. At the stop where waiting's found.", 
     suspect: {
@@ -80,7 +80,7 @@ const CHECKPOINTS = [
     id: 'CP06',
     name: "The Rival",
     solution: "4747",
-    location: { lat: 13.00984604836314,  lng:  74.79841098737691, },
+    location: { lat: 13.007061274399877,  lng:  74.79466004257415, },
     mapCoords: { x: '45%', y: '7%' },
     clue : "A home for games beneath one dome, Where sweat and cheers make champions roam.", 
     suspect: {
@@ -95,7 +95,7 @@ const CHECKPOINTS = [
     id: 'CP07',
     name: "The Administrator",
     solution: "1427",
-    location: { lat: 13.01061113235006,   lng: 74.79588806317606, },
+    location: { lat: 13.007061274399877,   lng: 74.79466004257415, },
     mapCoords: { x: '35%', y: '35%' },
     clue : "The light falters but the stage endures, a witness to all that time ensures.", 
     suspect: {
@@ -110,7 +110,7 @@ const CHECKPOINTS = [
     id: 'CP08',
     name: "The Ghost",
     solution: "1138",
-    location: { lat: 13.011186106482821,  lng: 74.79384621275285,},
+    location: { lat: 13.007061274399877,  lng: 74.79466004257415,},
     mapCoords: { x: '27%', y: '74%' },
     clue : "Back and forth I trace the hours, A pendulum's dance through sun and showers. Like a metronome I sway in time, Measuring days in a worthless chime. ", 
     suspect: {

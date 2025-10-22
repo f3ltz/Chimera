@@ -20,13 +20,13 @@ const LiveTimer = ({ startTime }) => {
       setElapsedSeconds(0); // Ensure timer is reset
       return;
     }
-
+    console.log(Date.now())
     // Set the initial value immediately
-    setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
+    setElapsedSeconds(Math.floor((Date.now() - 1761044571933) / 1000));
     
     // Set up the interval to update it every second
     const interval = setInterval(() => {
-      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
+      setElapsedSeconds(Math.floor((Date.now() - 1761044571933) / 1000));
     }, 1000);
 
     // This cleanup function runs when the component unmounts or startTime changes
